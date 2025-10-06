@@ -29,6 +29,17 @@ Verweisen Sie auf unser aktuelles Schulungsmaterial im Help-Center und bieten Si
 **Frage 9: Was tun, wenn Makler:innen Datenschutzbedenken äußern?**  
 Erklären Sie die vorhandenen Sicherheitsmaßnahmen (SSL-Verschlüsselung, DSGVO-konforme Speicherung). Stellen Sie weiterführende Unterlagen bereit und bieten Sie an, konkrete Fragen an unsere Datenschutzbeauftragten weiterzugeben.
 
-**Frage 10: Wie gehe ich mit Eskalationen und unzufriedenen Makler:innen um?**  
+**Frage 10: Wie gehe ich mit Eskalationen und unzufriedenen Makler:innen um?**
 Bleiben Sie ruhig, hören Sie aktiv zu und fassen Sie die Anliegen zusammen. Stellen Sie einen klaren Aktionsplan mit Zeitleiste bereit und informieren Sie die verantwortlichen Teams über die Eskalation. Halten Sie die Makler:innen regelmäßig über Fortschritte auf dem Laufenden.
+
+## Hinweis: Mietwohnungszahlen pro Jahr
+
+Für eine Liste, wie viele Mietwohnungen in Deutschland pro Jahr bestehen, verweisen wir auf die GENESIS-Datenbank des Statistischen Bundesamts. Ein direkter Abruf über Skripte schlug wegen einer Zugangsbegrenzung fehl; manuell können die Werte aber wie folgt ermittelt werden:
+
+1. GENESIS-Online öffnen: <https://www-genesis.destatis.de/genesis/online>
+2. Die Tabelle **31111-0004 – Wohngebäude: Wohnungen nach Art der Nutzung** auswählen.
+3. Als Merkmale „Deutschland“ und „Mietwohnungen“ einstellen und den Zeitraum (z. B. 2010 – aktuelles Jahr) wählen.
+4. Die Tabelle anzeigen und als CSV oder Excel exportieren. Die Spalte „Mietwohnungen“ enthält die gesuchten Jahreswerte.
+
+**Hinweis:** Für den Datenexport wird ein kostenloses GENESIS-Benutzerkonto benötigt. Ohne Login werden statt der CSV-Datei nur HTML-Fehlerseiten ausgeliefert, weshalb in diesem Repository keine fertige Liste hinterlegt werden konnte.
 
