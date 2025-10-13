@@ -1,0 +1,186 @@
+.mp4-player {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  width: 100%;
+  max-width: 960px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mp4-player.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+.mp4-player__video {
+  width: 100%;
+  height: auto;
+  background: #000;
+}
+
+.mp4-player__controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.65));
+}
+
+.mp4-player button,
+.mp4-player input[type="range"] {
+  font: inherit;
+  color: inherit;
+}
+
+.mp4-player__play-toggle,
+.mp4-player__fullscreen {
+  appearance: none;
+  border: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.mp4-player__play-toggle:hover,
+.mp4-player__play-toggle:focus,
+.mp4-player__fullscreen:hover,
+.mp4-player__fullscreen:focus {
+  background: rgba(255, 255, 255, 0.24);
+  outline: none;
+}
+
+.mp4-player__play-toggle.is-playing {
+  background: rgba(0, 200, 0, 0.3);
+}
+
+.mp4-player__timeline {
+  position: relative;
+  width: 100%;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.mp4-player__timeline-track {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  margin: 0;
+}
+
+.mp4-player__timeline-track::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 0;
+  margin-top: -0.325rem;
+}
+
+.mp4-player__timeline-track::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 0;
+}
+
+.mp4-player__buffered {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 0.35rem;
+  width: 0;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.mp4-player__time {
+  min-width: 3.5rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.mp4-player__volume {
+  width: 6rem;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mp4-player__volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 0;
+}
+
+.mp4-player__volume::-moz-range-thumb {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 0;
+}
+
+.mp4-player__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .mp4-player__controls {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+  }
+
+  .mp4-player__timeline {
+    grid-column: 1 / -1;
+  }
+
+  .mp4-player__time {
+    display: none;
+  }
+
+  .mp4-player__volume {
+    width: 100%;
+  }
+}
