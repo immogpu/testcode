@@ -1,0 +1,402 @@
+/*
+Theme Name: Random Canvas
+Theme URI: https://example.com/random-canvas
+Author: OpenAI Assistant
+Author URI: https://openai.com/
+Description: A vibrant, randomly-inspired WordPress theme featuring bold gradients, dynamic shapes, and editorial typography for creative blogs and portfolios.
+Version: 1.0.0
+Tested up to: 6.5
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: random-canvas
+Tags: blog, portfolio, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+:root {
+  --rc-bg: linear-gradient(135deg, #130f40 0%, #4834d4 45%, #be2edd 100%);
+  --rc-text: #1f2026;
+  --rc-muted: #66697a;
+  --rc-card-bg: rgba(255, 255, 255, 0.88);
+  --rc-border: rgba(28, 29, 43, 0.14);
+  --rc-accent: #ffb547;
+  --rc-accent-dark: #ef7f3e;
+  --rc-shadow: 0 18px 45px rgba(15, 14, 56, 0.22);
+  --rc-radius: 20px;
+  --rc-max-width: min(1120px, 90vw);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  background: var(--rc-bg);
+  color: var(--rc-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--rc-accent-dark);
+}
+
+.site {
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+.site-header {
+  padding: 3.5rem 0 2rem;
+  position: relative;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset: 12% 5% auto auto;
+  width: 210px;
+  height: 210px;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.28), transparent 70%);
+  border-radius: 50%;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.site-branding {
+  max-width: var(--rc-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.site-title {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.site-description {
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.main-navigation {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--rc-shadow);
+}
+
+.main-navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.main-navigation ul.is-open {
+  display: flex;
+}
+
+.main-navigation a {
+  color: inherit;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.hero-block {
+  max-width: var(--rc-max-width);
+  margin: 0 auto 3rem;
+  background: var(--rc-card-bg);
+  border-radius: var(--rc-radius);
+  padding: clamp(2rem, 4vw, 4rem);
+  box-shadow: var(--rc-shadow);
+  border: 1px solid var(--rc-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-block::before {
+  content: "";
+  position: absolute;
+  inset: -40% auto auto -15%;
+  width: 65%;
+  aspect-ratio: 1;
+  background: conic-gradient(from 90deg, rgba(239, 127, 62, 0.45), rgba(255, 181, 71, 0.75), rgba(86, 204, 242, 0.45));
+  filter: blur(40px);
+  opacity: 0.6;
+  transform: rotate(12deg);
+}
+
+.hero-block h1 {
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.hero-block p {
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  max-width: 620px;
+  color: var(--rc-muted);
+  position: relative;
+}
+
+.hero-cta {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.hero-cta a {
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-cta a:first-child {
+  background: linear-gradient(120deg, var(--rc-accent), #ffeaa7);
+  box-shadow: 0 18px 30px rgba(255, 181, 71, 0.4);
+  color: #211f2a;
+}
+
+.hero-cta a:last-child {
+  border: 1px solid rgba(33, 31, 42, 0.25);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--rc-accent-dark);
+}
+
+.hero-cta a:hover {
+  transform: translateY(-4px);
+}
+
+.content-area {
+  flex: 1 0 auto;
+}
+
+.posts-wrapper {
+  max-width: var(--rc-max-width);
+  margin: 0 auto 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.post-card {
+  background: var(--rc-card-bg);
+  border-radius: var(--rc-radius);
+  padding: 2.2rem 2.4rem;
+  border: 1px solid var(--rc-border);
+  box-shadow: var(--rc-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.post-card::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -45% 60%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle at center, rgba(72, 52, 212, 0.4), transparent 70%);
+  filter: blur(22px);
+  transform: rotate(18deg);
+}
+
+.post-card .post-category {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  color: rgba(31, 32, 38, 0.55);
+}
+
+.post-card h2 {
+  margin: 0;
+  font-size: 1.85rem;
+  position: relative;
+}
+
+.post-card .entry-meta {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--rc-muted);
+  position: relative;
+}
+
+.post-card .entry-excerpt {
+  position: relative;
+  color: var(--rc-muted);
+  line-height: 1.8;
+}
+
+.post-card .read-more {
+  align-self: flex-start;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(72, 52, 212, 0.15);
+  color: #341f97;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  position: relative;
+}
+
+.post-card .read-more:hover {
+  background: rgba(239, 127, 62, 0.2);
+  color: var(--rc-accent-dark);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85rem;
+  position: relative;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: auto 10% 20% auto;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at center, rgba(239, 127, 62, 0.4), transparent 70%);
+  filter: blur(18px);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem auto 0;
+}
+
+.pagination .page-numbers {
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  color: var(--rc-accent-dark);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.pagination .current {
+  background: var(--rc-accent);
+  color: #1f2026;
+}
+
+.wp-block-image img,
+img {
+  max-width: 100%;
+  border-radius: calc(var(--rc-radius) - 6px);
+}
+
+.wp-block-quote,
+blockquote {
+  border-left: 4px solid var(--rc-accent);
+  padding-left: 1.5rem;
+  color: var(--rc-muted);
+  font-style: italic;
+}
+
+.wp-block-code,
+pre {
+  background: rgba(19, 15, 64, 0.1);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  overflow-x: auto;
+  font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@media (max-width: 820px) {
+  .site-branding {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-navigation {
+    width: 100%;
+    padding: 0.6rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-navigation ul {
+    flex-direction: column;
+    width: 100%;
+    padding-top: 0.6rem;
+    gap: 0.75rem;
+  }
+
+  .js-enabled .main-navigation ul {
+    display: none;
+  }
+
+  .js-enabled .main-navigation ul.is-open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    align-self: flex-end;
+  }
+
+  .js-enabled .main-navigation.is-open {
+    gap: 0.4rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-block,
+  .post-card {
+    padding: 1.8rem;
+  }
+
+  .site-header {
+    padding-top: 2.4rem;
+  }
+}
