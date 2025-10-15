@@ -1,0 +1,27 @@
+{
+  "name": "universal-mp4-player",
+  "version": "0.1.0",
+  "description": "Lightweight, framework-agnostic MP4 video player with custom controls for browsers and mobile.",
+  "main": "dist/mp4player.js",
+  "module": "dist/mp4player.js",
+  "type": "module",
+  "files": [
+    "dist",
+    "styles"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --experimental-vm-modules tests/player.test.mjs"
+  },
+  "keywords": [
+    "video",
+    "player",
+    "mp4",
+    "html5"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdom": "^27.0.0"
+  }
+}

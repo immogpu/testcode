@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Universal MP4 Player Demo</title>
+    <link rel="stylesheet" href="../dist/mp4player.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        background: #111;
+        color: #fff;
+        font-family: system-ui, sans-serif;
+      }
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+      .player-wrapper {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="player-wrapper">
+      <h1>Universal MP4 Player</h1>
+      <div id="player"></div>
+    </div>
+    <script type="module">
+      import Mp4Player from '../dist/mp4player.js';
+
+      const player = new Mp4Player('#player', {
+        poster: 'https://interactive-examples.mdn.mozilla.net/media/examples/flower.webm.jpg',
+        sources: [
+          {
+            src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+            type: 'video/mp4'
+          }
+        ]
+      });
+
+      window.player = player;
+    </script>
+  </body>
+</html>
