@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serendipity Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #6c5ce7;
+      --primary-dark: #4834d4;
+      --accent: #fdcb6e;
+      --text: #1e1e2f;
+      --muted: rgba(30, 30, 47, 0.6);
+      --surface: #f8f8ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, rgba(108, 92, 231, 0.12), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(253, 203, 110, 0.2), transparent 40%),
+        var(--surface);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.75rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .brand span {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      font-size: 1.35rem;
+      box-shadow: 0 14px 35px rgba(108, 92, 231, 0.35);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 0.3rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3.5rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 4rem auto 0;
+      padding: 0 1.75rem 4rem;
+    }
+
+    .hero__content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .hero__content h1 span {
+      color: var(--primary);
+      position: relative;
+    }
+
+    .hero__content h1 span::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0.6rem;
+      background: rgba(108, 92, 231, 0.2);
+      z-index: -1;
+      border-radius: 8px;
+    }
+
+    .hero__content p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 540px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero__cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+    }
+
+    .btn {
+      padding: 0.85rem 1.95rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 18px 40px rgba(108, 92, 231, 0.28);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 45px rgba(108, 92, 231, 0.35);
+    }
+
+    .btn--ghost {
+      border: 1px solid rgba(30, 30, 47, 0.08);
+      color: var(--text);
+      background: white;
+    }
+
+    .btn--ghost:hover {
+      border-color: rgba(108, 92, 231, 0.35);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .hero__media {
+      position: relative;
+    }
+
+    .hero__card {
+      background: white;
+      border-radius: 28px;
+      padding: 2.5rem;
+      box-shadow: 0 24px 50px rgba(72, 52, 212, 0.16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spark {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.7;
+    }
+
+    .spark--1 {
+      width: 320px;
+      height: 320px;
+      background: rgba(108, 92, 231, 0.35);
+      top: -160px;
+      right: -160px;
+    }
+
+    .spark--2 {
+      width: 220px;
+      height: 220px;
+      background: rgba(253, 203, 110, 0.3);
+      bottom: -120px;
+      left: -120px;
+    }
+
+    .hero__card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .hero__card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .hero__card li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 8px 18px rgba(253, 203, 110, 0.4);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .metric {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: inset 0 0 0 1px rgba(108, 92, 231, 0.08);
+    }
+
+    .metric strong {
+      font-size: 1.7rem;
+      display: block;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .metric span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .trust {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.75rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .trust__card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 20px 45px rgba(30, 30, 47, 0.08);
+      border: 1px solid rgba(30, 30, 47, 0.05);
+    }
+
+    .trust__card h4 {
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .trust__card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.75rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      .hero {
+        margin-top: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span>SS</span>
+      <div>
+        <div>Serendipity</div>
+        <small style="font-weight: 400; color: var(--muted); letter-spacing: 0.08em">Creative Studio</small>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero__content">
+      <h1>Crafting <span>delightful randomness</span> into iconic brand stories.</h1>
+      <p>
+        Serendipity Studio transforms unexpected sparks into immersive customer journeys.
+        Our multi-disciplinary team blends strategy, art, and technology to design experiences
+        that feel magically inevitable.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#start">Start a project</a>
+        <a class="btn btn--ghost" href="#showreel">View showreel</a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="hero__card">
+        <span class="spark spark--1"></span>
+        <span class="spark spark--2"></span>
+        <h3>Random inspiration, refined execution</h3>
+        <ul>
+          <li><span class="badge"></span> Immersive microsites & launch pages</li>
+          <li><span class="badge"></span> Interactive brand storytelling</li>
+          <li><span class="badge"></span> Experiential product campaigns</li>
+        </ul>
+        <div class="metrics">
+          <div class="metric">
+            <strong>120+</strong>
+            <span>Campaigns shipped</span>
+          </div>
+          <div class="metric">
+            <strong>48h</strong>
+            <span>Average ideation sprint</span>
+          </div>
+          <div class="metric">
+            <strong>97%</strong>
+            <span>Client delight score</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" id="services">
+    <article class="trust__card">
+      <h4>Strategic Chaos Mapping</h4>
+      <p>
+        We translate vague ideas into structured creative frameworks that guide your brand toward
+        meaningful differentiation without losing the spark that made it special.
+      </p>
+    </article>
+    <article class="trust__card" id="process">
+      <h4>Immersive Story Systems</h4>
+      <p>
+        Our designers and technologists craft interactive narratives, blending motion, sound, and
+        microcopy to keep audiences exploring.
+      </p>
+    </article>
+    <article class="trust__card" id="clients">
+      <h4>Collaborative Launch Pods</h4>
+      <p>
+        We embed with your team, spinning up rapid pods focused on experimentation, iteration, and
+        measuring the impact of bold creative choices.
+      </p>
+    </article>
+    <article class="trust__card" id="contact">
+      <h4>Signals & Support</h4>
+      <p>
+        From growth analytics to post-launch optimization, we ensure each experience continues
+        to surprise and delight your community.
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <div>© <span id="year"></span> Serendipity Studio. All surprises reserved.</div>
+    <div class="socials">
+      <a href="https://dribbble.com">Dribbble</a>
+      <a href="https://behance.net">Behance</a>
+      <a href="mailto:hello@serendipity.studio">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
