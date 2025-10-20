@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modern Landing Page</title>
+    <meta
+      name="description"
+      content="A responsive HTML5 landing page template with hero, feature, testimonial, and contact sections."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --color-bg: #f5f5f7;
+        --color-surface: #ffffff;
+        --color-primary: #2563eb;
+        --color-primary-dark: #1d4ed8;
+        --color-text: #0f172a;
+        --color-muted: #475569;
+        --color-border: rgba(15, 23, 42, 0.08);
+        --shadow-md: 0 12px 40px rgba(15, 23, 42, 0.12);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #eef2ff, #f8fafc 45%, #f1f5f9);
+        color: var(--color-text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(24px);
+        background-color: rgba(255, 255, 255, 0.65);
+        border-bottom: 1px solid var(--color-border);
+        z-index: 10;
+      }
+
+      .nav {
+        margin: 0 auto;
+        max-width: 1120px;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .nav__brand {
+        font-weight: 700;
+        font-size: 1.25rem;
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav__items {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-weight: 500;
+      }
+
+      .nav__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 1.5rem;
+        border-radius: 999px;
+        background: var(--color-primary);
+        color: #fff;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .nav__cta:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+      }
+
+      .hero {
+        flex: 1;
+        display: grid;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 1120px;
+        padding: 5rem 1.5rem 4rem;
+        gap: 3rem;
+      }
+
+      .hero__eyebrow {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--color-muted);
+      }
+
+      .hero__title {
+        margin: 0.5rem 0 1rem;
+        font-size: clamp(2.75rem, 4vw + 1rem, 4rem);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+      }
+
+      .hero__subtitle {
+        margin: 0;
+        max-width: 540px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--color-muted);
+      }
+
+      .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2.5rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 600;
+        padding: 0.8rem 1.75rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .btn--primary {
+        background: var(--color-primary);
+        color: #fff;
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn--primary:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+      }
+
+      .btn--ghost {
+        background: rgba(37, 99, 235, 0.08);
+        color: var(--color-primary);
+      }
+
+      .btn--ghost:hover {
+        background: rgba(37, 99, 235, 0.16);
+      }
+
+      .hero__media {
+        position: relative;
+        padding: 1.5rem;
+        border-radius: 24px;
+        background: var(--color-surface);
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+      }
+
+      .hero__media::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top, rgba(37, 99, 235, 0.22), transparent 55%);
+      }
+
+      .hero__media img {
+        border-radius: 16px;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .section {
+        margin: 0 auto;
+        max-width: 1120px;
+        padding: 0 1.5rem 5rem;
+      }
+
+      .section__title {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .section__description {
+        margin-top: 0.75rem;
+        max-width: 640px;
+        color: var(--color-muted);
+        line-height: 1.7;
+      }
+
+      .features {
+        display: grid;
+        gap: 1.75rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        border-radius: 20px;
+        background: var(--color-surface);
+        padding: 2rem;
+        border: 1px solid var(--color-border);
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 24px 50px rgba(15, 23, 42, 0.12);
+      }
+
+      .feature-card__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: grid;
+        place-content: center;
+        background: rgba(37, 99, 235, 0.12);
+        color: var(--color-primary);
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card__title {
+        margin: 0 0 0.75rem;
+        font-size: 1.35rem;
+        font-weight: 600;
+      }
+
+      .feature-card__description {
+        margin: 0;
+        color: var(--color-muted);
+        line-height: 1.65;
+      }
+
+      .metrics {
+        margin-top: 3.5rem;
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .metric {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .metric__value {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--color-primary);
+      }
+
+      .metric__label {
+        margin: 0;
+        color: var(--color-muted);
+      }
+
+      .testimonials {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .testimonial {
+        padding: 2rem;
+        border-radius: 20px;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+      }
+
+      .testimonial__quote {
+        margin: 0;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+
+      .testimonial__author {
+        margin-top: 1.25rem;
+        font-weight: 600;
+      }
+
+      .cta {
+        margin: 0 auto;
+        max-width: 1120px;
+        padding: 0 1.5rem 5rem;
+      }
+
+      .cta__inner {
+        display: grid;
+        gap: 1.5rem;
+        border-radius: 24px;
+        background: linear-gradient(135deg, #1d4ed8, #2563eb 40%, #1e3a8a);
+        color: #fff;
+        padding: clamp(2rem, 6vw, 3.5rem);
+        box-shadow: 0 24px 45px rgba(37, 99, 235, 0.35);
+      }
+
+      .cta__title {
+        margin: 0;
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .cta__subtitle {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      footer {
+        margin-top: auto;
+        padding: 2.5rem 1.5rem 2rem;
+        background: rgba(15, 23, 42, 0.92);
+        color: rgba(248, 250, 252, 0.85);
+      }
+
+      .footer__inner {
+        margin: 0 auto;
+        max-width: 1120px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer__links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .hero {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .features {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .metrics {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .testimonials {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 767px) {
+        header {
+          position: static;
+        }
+
+        .nav__items {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 4rem;
+        }
+
+        .hero__media {
+          order: -1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#" class="nav__brand">
+            <span aria-hidden="true">✨</span>
+            Aurora
+          </a>
+          <div class="nav__items">
+            <a href="#features">Features</a>
+            <a href="#testimonials">Stories</a>
+            <a href="#contact">Contact</a>
+            <a class="nav__cta" href="#start">Start Free Trial</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <p class="hero__eyebrow">Experience the future</p>
+            <h1 class="hero__title">Design delightful customer journeys in minutes.</h1>
+            <p class="hero__subtitle">
+              Aurora empowers creative teams to launch high-converting landing pages with built-in analytics, real-time
+              collaboration, and pixel-perfect control.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" id="start" href="#contact">Get started</a>
+              <a class="btn btn--ghost" href="#features">Explore features</a>
+            </div>
+          </div>
+          <div class="hero__media" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Team collaborating on a design project" />
+          </div>
+        </section>
+
+        <section id="features" class="section" aria-labelledby="features-heading">
+          <div>
+            <h2 class="section__title" id="features-heading">Everything you need to ship with confidence</h2>
+            <p class="section__description">
+              From first draft to launch day, Aurora keeps your team in flow with intuitive tools, reusable sections, and effortless
+              publishing.
+            </p>
+          </div>
+          <div class="features" role="list">
+            <article class="feature-card" role="listitem">
+              <div class="feature-card__icon">⚡</div>
+              <h3 class="feature-card__title">Fast iteration</h3>
+              <p class="feature-card__description">
+                Drag-and-drop components, fine-tune responsive layouts, and roll out updates without waiting on developers.
+              </p>
+            </article>
+            <article class="feature-card" role="listitem">
+              <div class="feature-card__icon">🎯</div>
+              <h3 class="feature-card__title">Built-in intelligence</h3>
+              <p class="feature-card__description">
+                Understand visitor intent with AI-powered heatmaps, personalized experiences, and predictive A/B testing.
+              </p>
+            </article>
+            <article class="feature-card" role="listitem">
+              <div class="feature-card__icon">🔒</div>
+              <h3 class="feature-card__title">Enterprise-ready</h3>
+              <p class="feature-card__description">
+                SOC 2 Type II compliance, SSO integration, and granular permissions keep your data protected and secure.
+              </p>
+            </article>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <div class="metric__value">+47%</div>
+              <p class="metric__label">Average conversion lift after 30 days</p>
+            </div>
+            <div class="metric">
+              <div class="metric__value">120+</div>
+              <p class="metric__label">Reusable sections tailored to your brand</p>
+            </div>
+            <div class="metric">
+              <div class="metric__value">24/7</div>
+              <p class="metric__label">Expert support to keep launches on track</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials" class="section" aria-labelledby="testimonials-heading">
+          <div>
+            <h2 class="section__title" id="testimonials-heading">Loved by teams around the world</h2>
+            <p class="section__description">
+              Marketers, designers, and founders use Aurora to experiment faster and connect with audiences in record time.
+            </p>
+          </div>
+          <div class="testimonials" role="list">
+            <figure class="testimonial" role="listitem">
+              <blockquote class="testimonial__quote">
+                “Within two weeks of adopting Aurora, we launched three campaigns that would have taken months before. The live
+                collaboration features are a game changer.”
+              </blockquote>
+              <figcaption class="testimonial__author">Jasmine Patel · VP Marketing, Northstar</figcaption>
+            </figure>
+            <figure class="testimonial" role="listitem">
+              <blockquote class="testimonial__quote">
+                “Our designers love the creative freedom, and our engineers appreciate not having to rebuild layouts. Aurora keeps
+                everyone in sync.”
+              </blockquote>
+              <figcaption class="testimonial__author">Miguel Rossi · Product Design Lead, Lumen</figcaption>
+            </figure>
+            <figure class="testimonial" role="listitem">
+              <blockquote class="testimonial__quote">
+                “The analytics dashboard highlights exactly where to focus. Since switching, our sign-ups increased by 61%.”
+              </blockquote>
+              <figcaption class="testimonial__author">Priya Nair · Growth Lead, Horizon Labs</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="contact" class="cta" aria-labelledby="cta-heading">
+          <div class="cta__inner">
+            <div>
+              <h2 class="cta__title" id="cta-heading">Bring your next launch to life with Aurora</h2>
+              <p class="cta__subtitle">
+                Start your free 14-day trial, invite your team, and go live without touching a single line of code.
+              </p>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="mailto:hello@aurora.io">Talk to sales</a>
+              <a class="btn btn--ghost" href="#">Download brochure</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer__inner">
+          <span>&copy; <span id="year"></span> Aurora Labs. All rights reserved.</span>
+          <div class="footer__links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Status</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const yearElement = document.getElementById('year');
+      const currentYear = new Date().getFullYear();
+      yearElement.textContent = currentYear;
+    </script>
+  </body>
+</html>
