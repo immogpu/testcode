@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Coding Websites | Level Up Your Skills</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #6750f8;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --accent: #22d3ee;
+        --muted: #475569;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at top left, rgba(103, 80, 248, 0.15), transparent 55%),
+          radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.15), transparent 50%),
+          var(--light);
+        color: var(--dark);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        background-color: rgba(248, 250, 252, 0.85);
+        border-bottom: 1px solid rgba(103, 80, 248, 0.1);
+        z-index: 100;
+      }
+
+      .navbar {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .navbar__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+
+      .navbar__logo span {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        font-weight: 700;
+      }
+
+      .navbar__links {
+        display: flex;
+        gap: 1.5rem;
+        font-weight: 500;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn--primary {
+        background: linear-gradient(135deg, var(--primary), #7c3aed);
+        color: white;
+        box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+      }
+
+      .btn--ghost {
+        background: transparent;
+        color: var(--dark);
+        border: 1px solid rgba(15, 23, 42, 0.15);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem 5rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: center;
+        gap: 2.5rem;
+        padding: 6rem 0 4rem;
+      }
+
+      .hero__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(103, 80, 248, 0.1);
+        color: var(--primary);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+        line-height: 1.1;
+        margin: 1rem 0;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+
+      .hero__stats {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .hero__stat {
+        padding: 1.5rem;
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
+        min-width: 160px;
+      }
+
+      .hero__stat h3 {
+        margin: 0;
+        font-size: 2rem;
+        color: var(--primary);
+      }
+
+      .hero__stat span {
+        color: var(--muted);
+      }
+
+      .illustration {
+        position: relative;
+        padding: 2rem;
+      }
+
+      .illustration::before,
+      .illustration::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      .illustration::before {
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, rgba(103, 80, 248, 0.3), transparent 70%);
+        top: -40px;
+        left: 20px;
+      }
+
+      .illustration::after {
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(34, 211, 238, 0.35), transparent 70%);
+        bottom: 0;
+        right: 0;
+      }
+
+      .illustration__card {
+        background: white;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 35px 60px rgba(15, 23, 42, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .illustration__card::before {
+        content: "</>";
+        position: absolute;
+        top: -30px;
+        right: -10px;
+        font-size: 8rem;
+        color: rgba(103, 80, 248, 0.08);
+        font-weight: 700;
+      }
+
+      .illustration__list {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .illustration__item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 14px;
+        background: rgba(248, 250, 252, 0.9);
+      }
+
+      .illustration__item span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        font-weight: 600;
+      }
+
+      .section {
+        margin-top: 5rem;
+      }
+
+      .section__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+      }
+
+      .section__header h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 2.6rem);
+      }
+
+      .section__header p {
+        max-width: 520px;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .grid--three {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .grid--two {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .card {
+        background: white;
+        border-radius: 18px;
+        padding: 2rem;
+        box-shadow: 0 25px 45px rgba(15, 23, 42, 0.12);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 35px 60px rgba(15, 23, 42, 0.16);
+      }
+
+      .card__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(103, 80, 248, 0.12);
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .card h3 {
+        margin: 1rem 0 0.5rem;
+      }
+
+      .card p {
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+        min-height: 90px;
+      }
+
+      .card__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tag {
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.08);
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .highlights {
+        background: linear-gradient(135deg, rgba(103, 80, 248, 0.12), rgba(34, 211, 238, 0.12));
+        border-radius: 24px;
+        padding: 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .highlights::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 180px;
+        height: 180px;
+        background: rgba(124, 58, 237, 0.15);
+        filter: blur(40px);
+        border-radius: 50%;
+      }
+
+      .highlights__list {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .highlights__item h4 {
+        margin: 0 0 0.5rem;
+      }
+
+      .highlights__item p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .reviews {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .review {
+        background: white;
+        border-radius: 18px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+      }
+
+      .review__rating {
+        color: #fbbf24;
+        font-size: 1.1rem;
+      }
+
+      .review__author {
+        margin-top: 1.5rem;
+        font-weight: 600;
+      }
+
+      footer {
+        margin-top: 5rem;
+        padding: 3rem 1.5rem;
+        background: var(--dark);
+        color: rgba(248, 250, 252, 0.85);
+      }
+
+      .footer__content {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .footer__brand span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        margin-bottom: 0.75rem;
+      }
+
+      .footer__links {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .footer__links a {
+        color: rgba(248, 250, 252, 0.8);
+      }
+
+      .footer__links a:hover {
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .navbar__links {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a class="navbar__logo" href="#top">
+          <span>BC</span>
+          BestCoders
+        </a>
+        <div class="navbar__links">
+          <a href="#websites">Websites</a>
+          <a href="#highlights">Highlights</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#newsletter">Newsletter</a>
+        </div>
+        <a class="btn btn--ghost" href="#newsletter">Join free</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div>
+          <span class="hero__eyebrow">Curated learning</span>
+          <h1>Discover the best coding websites to level up your skills</h1>
+          <p>
+            Stop guessing which platform to choose. Explore our curated selection of coding
+            websites, hand-picked for developers who want to master new languages, build real
+            projects, and stay ahead of the curve.
+          </p>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <h3>150K+</h3>
+              <span>Active learners guided</span>
+            </div>
+            <div class="hero__stat">
+              <h3>4.9/5</h3>
+              <span>Average community rating</span>
+            </div>
+            <div class="hero__stat">
+              <h3>30+</h3>
+              <span>Platforms reviewed each month</span>
+            </div>
+          </div>
+        </div>
+        <div class="illustration">
+          <div class="illustration__card">
+            <h3 style="margin-top: 0">Top picks this month</h3>
+            <div class="illustration__list">
+              <div class="illustration__item">
+                <span>#1</span>
+                <div>
+                  <strong>Codecademy</strong>
+                  <p style="margin: 0; color: var(--muted)">Interactive paths &amp; real projects</p>
+                </div>
+              </div>
+              <div class="illustration__item">
+                <span>#2</span>
+                <div>
+                  <strong>freeCodeCamp</strong>
+                  <p style="margin: 0; color: var(--muted)">Free certifications &amp; 8k+ lessons</p>
+                </div>
+              </div>
+              <div class="illustration__item">
+                <span>#3</span>
+                <div>
+                  <strong>Frontend Mentor</strong>
+                  <p style="margin: 0; color: var(--muted)">Realistic challenges &amp; feedback</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="websites">
+        <div class="section__header">
+          <div>
+            <h2>Top coding websites we recommend</h2>
+            <p>
+              A diverse set of platforms for every learning style&mdash;whether you prefer structured
+              courses, project-based challenges, or immersive video tutorials.
+            </p>
+          </div>
+          <a class="btn btn--primary" href="#newsletter">Get curated updates</a>
+        </div>
+
+        <div class="grid grid--three">
+          <article class="card">
+            <span class="card__badge">Beginner friendly</span>
+            <h3>Codecademy</h3>
+            <p>
+              Learn by doing with interactive lessons and guided paths that cover everything from
+              HTML &amp; CSS to Python, SQL, and Computer Science foundations.
+            </p>
+            <div class="card__tags">
+              <span class="tag">Interactive</span>
+              <span class="tag">Hands-on</span>
+              <span class="tag">Certificates</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__badge">Project-based</span>
+            <h3>freeCodeCamp</h3>
+            <p>
+              Master responsive design, JavaScript, data visualization, and APIs by completing
+              thousands of hours of guided projects and earning industry-recognized certifications.
+            </p>
+            <div class="card__tags">
+              <span class="tag">Free</span>
+              <span class="tag">Certifications</span>
+              <span class="tag">Community</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__badge">Career ready</span>
+            <h3>Udemy</h3>
+            <p>
+              Choose from expert-led courses on web development, cloud engineering, machine learning,
+              and more, with new content added every week and lifetime access.
+            </p>
+            <div class="card__tags">
+              <span class="tag">Video</span>
+              <span class="tag">Mentors</span>
+              <span class="tag">Lifetime access</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__badge">Problem solving</span>
+            <h3>LeetCode</h3>
+            <p>
+              Sharpen your data structure and algorithm skills with over 2,000 coding challenges and a
+              vibrant community sharing optimized solutions and interview insights.
+            </p>
+            <div class="card__tags">
+              <span class="tag">Algorithms</span>
+              <span class="tag">Interviews</span>
+              <span class="tag">Community</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__badge">Design to code</span>
+            <h3>Frontend Mentor</h3>
+            <p>
+              Build pixel-perfect projects from real design briefs, get feedback from pros, and level
+              up your HTML, CSS, and JavaScript skills with real-world challenges.
+            </p>
+            <div class="card__tags">
+              <span class="tag">Challenges</span>
+              <span class="tag">Peer review</span>
+              <span class="tag">Portfolio</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__badge">In-depth paths</span>
+            <h3>Pluralsight</h3>
+            <p>
+              Follow expert-led learning paths in software development, cybersecurity, and cloud
+              computing with assessments to measure progress and skill IQ.
+            </p>
+            <div class="card__tags">
+              <span class="tag">Skill IQ</span>
+              <span class="tag">Assessments</span>
+              <span class="tag">Enterprise</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="highlights">
+        <div class="highlights">
+          <div class="section__header" style="margin-bottom: 1.5rem">
+            <h2>Why trust our curated picks?</h2>
+            <p>
+              Every platform goes through our 30-point review covering curriculum quality, learner
+              support, project realism, and career outcomes. Here's what stands out.
+            </p>
+          </div>
+          <div class="highlights__list">
+            <div class="highlights__item">
+              <h4>Expert reviewers</h4>
+              <p>Professionals from FAANG, startups, and bootcamps audit each course and challenge.</p>
+            </div>
+            <div class="highlights__item">
+              <h4>Updated monthly</h4>
+              <p>We re-test lessons, review new features, and talk to learners to keep our lists fresh.</p>
+            </div>
+            <div class="highlights__item">
+              <h4>Career oriented</h4>
+              <p>Our recommendations prioritize job-ready skills, portfolio impact, and interview prep.</p>
+            </div>
+            <div class="highlights__item">
+              <h4>Community powered</h4>
+              <p>Thousands of learners submit reviews, success stories, and honest platform feedback.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="reviews">
+        <div class="section__header">
+          <h2>What developers are saying</h2>
+          <p>
+            Real testimonials from developers who used our recommendations to land jobs, ship
+            products, and master new stacks.
+          </p>
+        </div>
+        <div class="reviews">
+          <article class="review">
+            <div class="review__rating">★★★★★</div>
+            <p>
+              “Following the BestCoders roadmap helped me go from dabbling in tutorials to launching
+              my first SaaS product. The curated websites saved me so much time.”
+            </p>
+            <div class="review__author">Alicia, Full-stack Developer</div>
+          </article>
+          <article class="review">
+            <div class="review__rating">★★★★★</div>
+            <p>
+              “Their monthly update led me to Frontend Mentor challenges that beefed up my portfolio
+              and helped me land a remote job in six weeks.”
+            </p>
+            <div class="review__author">Sam, UI Engineer</div>
+          </article>
+          <article class="review">
+            <div class="review__rating">★★★★☆</div>
+            <p>
+              “I love the mix of algorithm practice and project-based learning recommendations. It's
+              the balance I needed to stay sharp for interviews.”
+            </p>
+            <div class="review__author">Imran, Software Engineer</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="newsletter">
+        <div class="grid grid--two">
+          <div>
+            <h2>Stay in the loop with new coding resources</h2>
+            <p>
+              Subscribe for monthly insights, platform comparisons, and coding challenges delivered to
+              your inbox.
+            </p>
+            <ul style="list-style: none; padding: 0; margin-top: 1.5rem; color: var(--muted)">
+              <li>✓ Fresh platform reviews &amp; updates</li>
+              <li>✓ Exclusive discounts &amp; scholarships</li>
+              <li>✓ Weekly coding challenge prompt</li>
+            </ul>
+          </div>
+          <form class="card" style="display: grid; gap: 1rem">
+            <label for="name" style="font-weight: 600">Name</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Ada Lovelace"
+              required
+              style="padding: 0.85rem 1rem; border-radius: 12px; border: 1px solid rgba(15, 23, 42, 0.12); font-size: 1rem"
+            />
+            <label for="email" style="font-weight: 600">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+              style="padding: 0.85rem 1rem; border-radius: 12px; border: 1px solid rgba(15, 23, 42, 0.12); font-size: 1rem"
+            />
+            <label for="focus" style="font-weight: 600">What are you learning?</label>
+            <select
+              id="focus"
+              name="focus"
+              style="padding: 0.85rem 1rem; border-radius: 12px; border: 1px solid rgba(15, 23, 42, 0.12); font-size: 1rem"
+            >
+              <option>Full-stack development</option>
+              <option>Frontend &amp; UI</option>
+              <option>Data science</option>
+              <option>Mobile apps</option>
+              <option>Interview prep</option>
+            </select>
+            <button class="btn btn--primary" type="submit">Subscribe now</button>
+            <small style="color: var(--muted)">
+              We respect your inbox. Unsubscribe anytime.
+            </small>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer__content">
+        <div class="footer__brand">
+          <span>BC</span>
+          <p style="margin: 0; font-weight: 600">BestCoders</p>
+          <p style="margin: 0.5rem 0 0; color: rgba(248, 250, 252, 0.7)">
+            Curated learning pathways and honest reviews for developers who never stop growing.
+          </p>
+        </div>
+        <div class="footer__links">
+          <strong>Explore</strong>
+          <a href="#websites">Top websites</a>
+          <a href="#highlights">Why trust us</a>
+          <a href="#reviews">Testimonials</a>
+          <a href="#newsletter">Newsletter</a>
+        </div>
+        <div class="footer__links">
+          <strong>Resources</strong>
+          <a href="#">Coding roadmaps</a>
+          <a href="#">Interview prep hub</a>
+          <a href="#">Scholarship tracker</a>
+          <a href="#">Community events</a>
+        </div>
+        <div class="footer__links">
+          <strong>Follow</strong>
+          <a href="#">YouTube</a>
+          <a href="#">Discord</a>
+          <a href="#">Twitter</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem; color: rgba(248, 250, 252, 0.6)">
+        © <span id="year"></span> BestCoders. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
