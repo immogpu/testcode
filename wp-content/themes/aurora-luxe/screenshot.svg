@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Aurora Luxe theme preview</title>
+  <desc id="desc">Stylized mockup preview of the Aurora Luxe WordPress theme with hero, features, and blog cards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="45%" stop-color="#111c34" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="50%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="120" />
+    </filter>
+  </defs>
+  <rect fill="url(#bg)" width="1200" height="900" rx="32" />
+  <g filter="url(#blur)">
+    <circle cx="220" cy="180" r="260" fill="rgba(139,92,246,0.35)" />
+    <circle cx="960" cy="320" r="220" fill="rgba(251,191,36,0.25)" />
+  </g>
+  <g fill="none" stroke="rgba(148,163,184,0.4)" stroke-width="2">
+    <rect x="120" y="120" width="960" height="660" rx="28" />
+  </g>
+  <g transform="translate(160 170)">
+    <rect width="160" height="160" rx="28" fill="rgba(15,23,42,0.75)" stroke="rgba(148,163,184,0.35)" />
+    <text x="80" y="92" text-anchor="middle" font-family="Poppins,Segoe UI,Arial" font-size="56" font-weight="700" fill="#0f172a">
+      <tspan fill="#fbbf24">A</tspan>
+    </text>
+  </g>
+  <text x="360" y="222" font-family="Poppins,Segoe UI,Arial" font-size="24" letter-spacing="6" fill="#e2e8f0">AURORA LUXE</text>
+  <g transform="translate(360 250)" font-family="Poppins,Segoe UI,Arial" fill="#94a3b8" font-size="16" letter-spacing="4">
+    <text>PREMIUM DIGITAL EXPERIENCES</text>
+  </g>
+  <g transform="translate(360 300)">
+    <rect width="640" height="72" fill="rgba(15,23,42,0.6)" stroke="rgba(148,163,184,0.25)" rx="16" />
+    <g transform="translate(24 26)" font-family="Poppins,Segoe UI,Arial" font-size="18" letter-spacing="4" fill="#94a3b8">
+      <text>HOME</text>
+      <text x="120">SERVICES</text>
+      <text x="280">STUDIO</text>
+      <text x="420">JOURNAL</text>
+      <text x="560">CONTACT</text>
+    </g>
+  </g>
+  <g transform="translate(220 380)">
+    <text x="0" y="0" font-family="Playfair Display,Georgia" font-size="72" font-weight="600" fill="#f8fafc">
+      <tspan x="0" dy="0">Illuminate</tspan>
+      <tspan x="0" dy="76">extraordinary stories</tspan>
+    </text>
+    <text x="0" y="190" font-family="Poppins,Segoe UI" font-size="22" fill="#94a3b8" opacity="0.9">
+      Tailor-made brand experiences infused with ambient light, intuitive design, and crafted strategy.
+    </text>
+    <rect x="0" y="230" width="220" height="54" rx="27" fill="url(#btn)" />
+    <text x="110" y="265" text-anchor="middle" font-family="Poppins,Segoe UI" font-size="18" font-weight="600" fill="#0f172a">Explore Services</text>
+    <rect x="240" y="230" width="220" height="54" rx="27" fill="rgba(15,23,42,0.6)" stroke="rgba(148,163,184,0.4)" />
+    <text x="350" y="265" text-anchor="middle" font-family="Poppins,Segoe UI" font-size="18" font-weight="600" fill="#e2e8f0">View Insights</text>
+  </g>
+  <g transform="translate(770 360)">
+    <rect width="270" height="320" rx="32" fill="rgba(15,23,42,0.7)" stroke="rgba(148,163,184,0.3)" />
+    <text x="36" y="64" font-family="Poppins,Segoe UI" font-size="24" font-weight="600" fill="#f8fafc">Signature Offerings</text>
+    <g font-family="Poppins,Segoe UI" font-size="18" fill="#94a3b8">
+      <text x="36" y="120">• Brand storytelling</text>
+      <text x="36" y="160">• Tailored experiences</text>
+      <text x="36" y="200">• Strategic insight</text>
+      <text x="36" y="240">• Ongoing partnership</text>
+    </g>
+  </g>
+  <g transform="translate(220 640)">
+    <text x="0" y="0" font-family="Poppins,Segoe UI" font-size="18" letter-spacing="6" fill="#8b5cf6">WHAT WE DO</text>
+    <text x="0" y="56" font-family="Playfair Display,Georgia" font-size="42" fill="#f8fafc">Radiant experiences, delivered end-to-end</text>
+  </g>
+  <g transform="translate(220 720)" fill="rgba(15,23,42,0.75)" stroke="rgba(148,163,184,0.25)" stroke-width="1.5">
+    <rect width="210" height="120" rx="20" />
+    <rect x="230" width="210" height="120" rx="20" />
+    <rect x="460" width="210" height="120" rx="20" />
+    <rect x="690" width="210" height="120" rx="20" />
+  </g>
+  <g transform="translate(240 760)" font-family="Poppins,Segoe UI" font-size="18" fill="#f8fafc">
+    <text>Brand Identity</text>
+    <text x="230">Experience Design</text>
+    <text x="460">Content Direction</text>
+    <text x="690">Growth Strategy</text>
+  </g>
+</svg>
