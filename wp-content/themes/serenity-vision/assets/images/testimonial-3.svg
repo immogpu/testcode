@@ -1,0 +1,18 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract portrait gradient 3</title>
+  <desc id="desc">Warm gradients forming a soft abstract portrait.</desc>
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fd79a8" />
+      <stop offset="100%" stop-color="#e84393" />
+    </linearGradient>
+    <radialGradient id="rad3" cx="45%" cy="35%" r="45%">
+      <stop offset="0%" stop-color="#ffeaa7" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#e84393" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="120" height="120" rx="32" fill="url(#grad3)" />
+  <circle cx="60" cy="40" r="24" fill="url(#rad3)" />
+  <path d="M32 94c12-22 52-22 56 0-18 20-38 20-56 0z" fill="rgba(255,255,255,0.3)" />
+  <path d="M44 56c6 8 26 8 32 0 4 6 6 14 0 22-10 10-22 10-32 0-6-8-4-16 0-22z" fill="rgba(8, 10, 25, 0.35)" />
+</svg>
