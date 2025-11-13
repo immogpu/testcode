@@ -71,3 +71,7 @@ The following lists highlight renowned contemporary singers for ten countries ra
 3. Dua Lipa – Disco-pop revivalist delivering chart-dominating singles.
 4. Harry Styles – Genre-blending pop-rock artist with charismatic performances.
 5. Sam Smith – Vocalist recognized for emotive ballads and R&B influences.
+
+---
+
+*Selection note: Countries were randomly chosen from forecasts of the most visited destinations in 2025, and the singers highlight a mix of legacy and contemporary talent for each nation.*
